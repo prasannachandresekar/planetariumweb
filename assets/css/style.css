@@ -40,6 +40,8 @@ body {
 
 main {
   flex: 1;
+  position: relative;
+  z-index: 1;
 }
 
 /* Typography Overrides */
@@ -74,8 +76,7 @@ a:hover {
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 0;
-  pointer-events: none;
+  z-index: -1;
   background-color: var(--bg);
   overflow: hidden;
   transition: background-color 0.3s ease;
@@ -139,11 +140,16 @@ a:hover {
   border-bottom: 1px solid var(--border);
   padding: 1rem 0;
   transition: all 0.3s ease;
+  position: sticky;
+  top: 0;
+  z-index: 1060;
+  width: 100%;
 }
 
 .navbar-brand img {
   height: 36px;
   width: auto;
+  display: inline-block;
 }
 
 .nav-link {
@@ -158,14 +164,6 @@ a:hover {
 .nav-link.active {
   color: var(--accent) !important;
   text-shadow: 0 0 10px rgba(124, 92, 255, 0.3);
-}
-
-/* ===== FIX HAMBURGER VISIBILITY ===== */
-
-.navbar {
-  position: sticky;
-  top: 0;
-  z-index: 1100;
 }
 
 
@@ -193,9 +191,14 @@ a:hover {
 
 /* Offcanvas */
 .offcanvas {
-  background-color: var(--bg);
-  color: var(--text);
+  background-color: var(--card) !important;
+  color: var(--text) !important;
   border-left: 1px solid var(--border);
+  z-index: 1080 !important;
+}
+
+.offcanvas-backdrop {
+  z-index: 1070 !important;
 }
 
 .btn-close {
@@ -343,9 +346,6 @@ a:hover {
 
 img {
   max-width: 100%;
-  display: block;
-  transform: translateZ(0);
-  backface-visibility: hidden;
 }
 
 .img-cover {
@@ -362,6 +362,8 @@ img {
   border-top: 1px solid var(--border);
   padding: 4rem 0 2rem;
   margin-top: auto;
+  position: relative;
+  z-index: 1;
 }
 
 .footer-text {
@@ -480,60 +482,18 @@ img {
 
 /* ===== MOBILE MENU FIX ===== */
 
-.offcanvas {
-  background-color: var(--card) !important;
-  color: var(--text) !important;
-  position: relative;
-  z-index: 1060 !important;
-}
-
-.offcanvas-backdrop {
-  z-index: 1055 !important;
-}
-
-.star-bg,
-.cosmic-bg,
-.hero-stars,
-body::before {
-  z-index: 0 !important;
-  pointer-events: none;
-}
-
 .offcanvas-body {
   height: 100%;
   overflow-y: auto;
 }
 
-/* ===== OFFCANVAS SAFE MODE ===== */
-
-/*body.menu-open .star-bg {
-  display: none !important;
-}
-
-body.menu-open {
-  overflow: hidden;
-}*/
-
-/* ===============================
 /* ===============================
    BOOTSTRAP OFFCANVAS & NAV FIXES
 ================================ */
 
-/* Remove the padding-top from body that causes the white gap */
 body {
   padding-top: 0;
 }
-
-/* Ensure the navbar stays at the top without gaps */
-.navbar {
-  position: sticky;
-  top: 0;
-  z-index: 1060;
-  width: 100%;
-}
-
-/* Fix mobile menu visibility and colors */
-
 
 /* Force links in the mobile menu to use the theme text color */
 .offcanvas .nav-link {
@@ -555,11 +515,6 @@ body {
 
 .offcanvas .dropdown-menu.show {
   display: block;
-}
-
-/* Ensure the background stars don't overlap the menu */
-.offcanvas-backdrop {
-  z-index: 1055 !important;
 }
 
 /* ===== FORCE HAMBURGER VISIBILITY ===== */

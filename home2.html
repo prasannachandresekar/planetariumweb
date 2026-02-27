@@ -20,71 +20,95 @@
         <div class="star-layer layer2"></div>
     </div>
 
-    <!-- Global Navbar -->
-    <nav class="navbar navbar-expand-lg sticky-top">
+    <!-- Desktop Navbar (visible >= lg) -->
+    <nav class="navbar d-none d-lg-flex sticky-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">
                 <img src="assets/images/logo.svg" alt="BOOMI Logo">
             </a>
-
-            <!-- Offcanvas Mobile Menu Toggle -->
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-                <i class="bi bi-list fs-1 text-accent"></i>
-            </button>
-
-            <!-- Offcanvas -->
-            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
-                aria-labelledby="offcanvasNavbarLabel">
-                <div class="offcanvas-header border-bottom border-secondary pt-4 pb-3">
-                    <img src="assets/images/logo.svg" alt="BOOMI Logo" height="30">
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                </div>
-                <div class="offcanvas-body">
-                    <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">Home</a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="index.html">Home 1</a></li>
-                                <li><a class="dropdown-item" href="home2.html">Home 2</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                Shows
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="planetarium.html">Planetarium</a></li>
-                                <li><a class="dropdown-item" href="theatre.html">3D Theatre</a></li>
-                                <li><a class="dropdown-item" href="lecture.html">Science Demonstration Lecture</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="blog.html">Blog</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="about.html">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Contact</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="login.html">Login</a>
-                        </li>
+            <ul class="navbar-nav flex-row gap-1 justify-content-center flex-grow-1 pe-3">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">Home</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="index.html">Home 1</a></li>
+                        <li><a class="dropdown-item" href="home2.html">Home 2</a></li>
                     </ul>
-                    <div class="d-flex align-items-center mt-3 mt-lg-0">
-                        <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
-                            <i class="bi bi-sun-fill"></i>
-                        </button>
-                        <a href="book-tickets.html" class="btn btn-accent ms-3 d-none d-lg-inline-block">Book
-                            Tickets</a>
-                    </div>
-                </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">Shows</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="planetarium.html">Planetarium</a></li>
+                        <li><a class="dropdown-item" href="theatre.html">3D Theatre</a></li>
+                        <li><a class="dropdown-item" href="lecture.html">Science Demonstration Lecture</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+            </ul>
+            <div class="d-flex align-items-center">
+                <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+                    <i class="bi bi-sun-fill"></i>
+                </button>
+                <a href="book-tickets.html" class="btn btn-accent ms-3">Book Tickets</a>
             </div>
         </div>
     </nav>
+
+    <!-- Mobile Navbar (visible < lg) -->
+    <nav class="navbar d-flex d-lg-none sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="assets/images/logo.svg" alt="BOOMI Logo">
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#mobileMenu" aria-controls="mobileMenu">
+                <i class="bi bi-list fs-1 text-accent"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Offcanvas Menu (body-level) -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="mobileMenu" aria-labelledby="mobileMenuLabel">
+        <div class="offcanvas-header border-bottom border-secondary pt-4 pb-3">
+            <img src="assets/images/logo.svg" alt="BOOMI Logo" height="30">
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="navbar-nav pe-3">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">Home</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="index.html">Home 1</a></li>
+                        <li><a class="dropdown-item" href="home2.html">Home 2</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">Shows</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="planetarium.html">Planetarium</a></li>
+                        <li><a class="dropdown-item" href="theatre.html">3D Theatre</a></li>
+                        <li><a class="dropdown-item" href="lecture.html">Science Demonstration Lecture</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+            </ul>
+            <div class="d-flex align-items-center mt-3">
+                <button id="themeToggleMobile" class="theme-toggle" aria-label="Toggle theme">
+                    <i class="bi bi-sun-fill"></i>
+                </button>
+                <a href="book-tickets.html" class="btn btn-accent ms-3">Book Tickets</a>
+            </div>
+        </div>
+    </div>
 
     <main>
         <!-- Split Hero Layout -->

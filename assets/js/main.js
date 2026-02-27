@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ==========================================================================
      Theme Toggle Logic
      ========================================================================== */
-  const themeToggle = document.getElementById('themeToggle');
+  const themeToggles = document.querySelectorAll('#themeToggle, #themeToggleMobile');
   const ICON_SUN = 'bi-sun-fill';
   const ICON_MOON = 'bi-moon-stars-fill';
 
@@ -19,30 +19,32 @@ document.addEventListener('DOMContentLoaded', () => {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
 
-    // Update button icon
-    if (themeToggle) {
-      const icon = themeToggle.querySelector('i');
-      if (theme === 'dark') {
-        icon.classList.remove(ICON_MOON);
-        icon.classList.add(ICON_SUN);
-      } else {
-        icon.classList.remove(ICON_SUN);
-        icon.classList.add(ICON_MOON);
+    // Update all toggle button icons
+    themeToggles.forEach(btn => {
+      const icon = btn.querySelector('i');
+      if (icon) {
+        if (theme === 'dark') {
+          icon.classList.remove(ICON_MOON);
+          icon.classList.add(ICON_SUN);
+        } else {
+          icon.classList.remove(ICON_SUN);
+          icon.classList.add(ICON_MOON);
+        }
       }
-    }
+    });
   };
 
   // Initialize Theme
   setTheme(getPreferredTheme());
 
-  // Toggle Theme Event
-  if (themeToggle) {
-    themeToggle.addEventListener('click', () => {
+  // Toggle Theme Event for all toggle buttons
+  themeToggles.forEach(btn => {
+    btn.addEventListener('click', () => {
       const currentTheme = document.documentElement.getAttribute('data-theme');
       const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
       setTheme(newTheme);
     });
-  }
+  });
 
   /* ==========================================================================
      Back to Top Button
@@ -203,20 +205,6 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('timeError').style.display = 'block';
         return false;
       }
-    });
-  }
-
-  /* ===== Fix Mobile Offcanvas Background Conflict ===== */
-
-  const offcanvasEl = document.getElementById('offcanvasNavbar');
-
-  if (offcanvasEl) {
-    offcanvasEl.addEventListener('show.bs.offcanvas', () => {
-      document.body.classList.add('menu-open');
-    });
-
-    offcanvasEl.addEventListener('hidden.bs.offcanvas', () => {
-      document.body.classList.remove('menu-open');
     });
   }
 
