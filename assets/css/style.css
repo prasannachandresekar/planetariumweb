@@ -11,6 +11,14 @@
   --border: #CBD5E1;
   --nav-bg: rgba(255, 255, 255, 0.85);
   --footer-bg: #E2E8F0;
+  --accent-glow: rgba(108, 78, 230, 0.1);
+
+  /* BS5 Mapping */
+  --bs-body-bg: var(--bg);
+  --bs-body-color: var(--text);
+  --bs-emphasis-color: var(--text);
+  --bs-secondary-color: var(--text);
+  --bs-secondary-bg: var(--primary);
 }
 
 [data-theme="dark"] {
@@ -23,6 +31,14 @@
   --border: #2A3553;
   --nav-bg: rgba(11, 15, 26, 0.85);
   --footer-bg: #141A2A;
+  --accent-glow: rgba(124, 92, 255, 0.15);
+
+  /* BS5 Mapping */
+  --bs-body-bg: var(--bg);
+  --bs-body-color: var(--text);
+  --bs-emphasis-color: var(--text);
+  --bs-secondary-color: var(--text);
+  --bs-secondary-bg: var(--primary);
 }
 
 /* ==========================================================================
@@ -189,6 +205,24 @@ a:hover {
   color: var(--accent);
 }
 
+/* Desktop Dropdown Layout Fix */
+@media (min-width: 992px) {
+  .navbar .nav-item.dropdown {
+    position: relative;
+  }
+
+  .navbar .dropdown-menu {
+    position: absolute !important;
+    top: 100% !important;
+    /* Ensure it starts at the bottom of the navbar */
+    left: 0;
+    margin-top: 0;
+    z-index: 1100;
+    /* Reset any flex-related expansion */
+    float: left;
+  }
+}
+
 /* Offcanvas */
 .offcanvas {
   background-color: var(--card) !important;
@@ -342,6 +376,20 @@ a:hover {
 
 .text-accent {
   color: var(--accent) !important;
+}
+
+.bg-accent {
+  background-color: var(--accent) !important;
+}
+
+/* Helper for badges and other elements needing white text on accent background */
+.text-bg-accent {
+  background-color: var(--accent) !important;
+  color: #FFFFFF !important;
+}
+
+.badge.bg-accent {
+  color: #FFFFFF !important;
 }
 
 img {
