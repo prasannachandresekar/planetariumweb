@@ -1,0 +1,581 @@
+/* ==========================================================================
+   CSS Variables & Premium Color System
+   ========================================================================== */
+:root {
+  /* Default Light Mode Colors */
+  --primary: #E2E8F0;
+  --accent: #6C4EE6;
+  --text: #0F172A;
+  --bg: #F8FAFC;
+  --card: #FFFFFF;
+  --border: #CBD5E1;
+  --nav-bg: rgba(255, 255, 255, 0.85);
+  --footer-bg: #E2E8F0;
+}
+
+[data-theme="dark"] {
+  /* Provided Dark Mode Colors */
+  --primary: #1B2A4A;
+  --accent: #7C5CFF;
+  --text: #E6ECFF;
+  --bg: #0B0F1A;
+  --card: #141A2A;
+  --border: #2A3553;
+  --nav-bg: rgba(11, 15, 26, 0.85);
+  --footer-bg: #141A2A;
+}
+
+/* ==========================================================================
+   Base Styles
+   ========================================================================== */
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+/* Typography Overrides */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--text);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+a:hover {
+  color: var(--accent);
+  text-shadow: 0 0 10px rgba(124, 92, 255, 0.5);
+}
+
+/* ==========================================================================
+   Global Cosmic Background (Animated Stars)
+   ========================================================================== */
+.star-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-color: var(--bg);
+  overflow: hidden;
+  transition: background-color 0.3s ease;
+}
+
+.star-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 200%;
+}
+
+.layer1 {
+  background-image:
+    radial-gradient(1.5px 1.5px at 10% 20%, var(--text) 100%, transparent),
+    radial-gradient(1px 1px at 30% 40%, var(--text) 100%, transparent),
+    radial-gradient(2px 2px at 50% 10%, var(--text) 100%, transparent),
+    radial-gradient(1.5px 1.5px at 70% 60%, var(--text) 100%, transparent),
+    radial-gradient(1px 1px at 90% 30%, var(--text) 100%, transparent),
+    radial-gradient(2px 2px at 20% 80%, var(--text) 100%, transparent),
+    radial-gradient(1px 1px at 40% 90%, var(--text) 100%, transparent),
+    radial-gradient(1.5px 1.5px at 60% 70%, var(--text) 100%, transparent),
+    radial-gradient(2px 2px at 80% 80%, var(--text) 100%, transparent);
+  background-size: 400px 400px;
+  opacity: 0.15;
+  animation: starsLinear 80s linear infinite;
+}
+
+.layer2 {
+  background-image:
+    radial-gradient(2px 2px at 15% 15%, var(--accent) 100%, transparent),
+    radial-gradient(1.5px 1.5px at 45% 45%, var(--accent) 100%, transparent),
+    radial-gradient(2.5px 2.5px at 75% 25%, var(--accent) 100%, transparent),
+    radial-gradient(1.5px 1.5px at 25% 75%, var(--accent) 100%, transparent),
+    radial-gradient(2px 2px at 85% 85%, var(--accent) 100%, transparent);
+  background-size: 500px 500px;
+  opacity: 0.2;
+  animation: starsLinear 120s linear infinite;
+}
+
+@keyframes starsLinear {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+/* ==========================================================================
+   Navbar Styles
+   ========================================================================== */
+.navbar {
+  background-color: var(--nav-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 0;
+  transition: all 0.3s ease;
+}
+
+.navbar-brand img {
+  height: 36px;
+  width: auto;
+}
+
+.nav-link {
+  color: var(--text) !important;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-link:focus,
+.nav-link.active {
+  color: var(--accent) !important;
+  text-shadow: 0 0 10px rgba(124, 92, 255, 0.3);
+}
+
+/* ===== FIX HAMBURGER VISIBILITY ===== */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1100;
+}
+
+
+
+.dropdown-menu {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] .dropdown-menu {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.dropdown-item {
+  color: var(--text);
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+  background-color: var(--primary);
+  color: var(--accent);
+}
+
+/* Offcanvas */
+.offcanvas {
+  background-color: var(--bg);
+  color: var(--text);
+  border-left: 1px solid var(--border);
+}
+
+.btn-close {
+  filter: none;
+}
+
+[data-theme="dark"] .btn-close {
+  filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+.theme-toggle {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+  background: var(--card);
+  color: var(--accent);
+  box-shadow: 0 0 15px rgba(124, 92, 255, 0.3);
+}
+
+/* ==========================================================================
+   Button Styles
+   ========================================================================== */
+.btn-accent {
+  background-color: var(--accent);
+  color: #FFFFFF;
+  border: none;
+  font-weight: 600;
+  padding: 0.75rem 1.75rem;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(124, 92, 255, 0.4);
+}
+
+.btn-accent:hover {
+  background-color: #5d3fd3;
+  /* slightly darker accent */
+  color: #fff;
+  box-shadow: 0 0 25px rgba(124, 92, 255, 0.7);
+  transform: translateY(-2px);
+}
+
+.btn-outline-accent {
+  background-color: transparent;
+  color: var(--accent);
+  border: 2px solid var(--accent);
+  font-weight: 600;
+  padding: 0.75rem 1.75rem;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-accent:hover {
+  background-color: var(--accent);
+  color: #fff;
+  box-shadow: 0 0 20px rgba(124, 92, 255, 0.5);
+}
+
+/* ==========================================================================
+   Cards & Layouts
+   ========================================================================== */
+.card-premium {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+}
+
+.card-premium:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  border-color: var(--accent);
+}
+
+[data-theme="dark"] .card-premium:hover {
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+
+.card-img-wrapper {
+  overflow: hidden;
+  height: 250px;
+}
+
+.card-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.card-premium:hover .card-img-wrapper img {
+  transform: scale(1.05);
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+/* Base Form Styling */
+.form-control {
+  background-color: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+}
+
+.form-control:focus {
+  background-color: var(--bg);
+  color: var(--text);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 0.25rem rgba(124, 92, 255, 0.25);
+}
+
+.form-label {
+  color: var(--text);
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   Sections & Utilities
+   ========================================================================== */
+.section-padding {
+  padding: 5rem 0;
+}
+
+.hero-padding {
+  padding: 8rem 0 5rem;
+}
+
+.text-accent {
+  color: var(--accent) !important;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.img-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.footer {
+  background-color: var(--footer-bg);
+  border-top: 1px solid var(--border);
+  padding: 4rem 0 2rem;
+  margin-top: auto;
+}
+
+.footer-text {
+  color: var(--text);
+  opacity: 0.8;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.75rem;
+}
+
+.footer-links a {
+  color: var(--text);
+  opacity: 0.8;
+}
+
+.footer-links a:hover {
+  color: var(--accent);
+  opacity: 1;
+}
+
+/* ==========================================================================
+   Back To Top
+   ========================================================================== */
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background-color: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 999;
+  box-shadow: 0 5px 15px rgba(124, 92, 255, 0.4);
+}
+
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.back-to-top:hover {
+  transform: translateY(-5px);
+  background-color: #5d3fd3;
+  color: #fff;
+  box-shadow: 0 10px 25px rgba(124, 92, 255, 0.6);
+}
+
+/* ==========================================================================
+   Auth Tabs (Login/Signup on same page)
+   ========================================================================== */
+.auth-container {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.auth-tabs {
+  display: flex;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid var(--border);
+}
+
+.auth-tab {
+  flex: 1;
+  text-align: center;
+  padding: 1rem;
+  cursor: pointer;
+  color: var(--text);
+  opacity: 0.6;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+}
+
+.auth-tab.active {
+  opacity: 1;
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+.auth-form {
+  display: none;
+  animation: fadeIn 0.4s ease forwards;
+}
+
+.auth-form.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== MOBILE MENU FIX ===== */
+
+.offcanvas {
+  background-color: var(--card) !important;
+  color: var(--text) !important;
+  position: relative;
+  z-index: 1060 !important;
+}
+
+.offcanvas-backdrop {
+  z-index: 1055 !important;
+}
+
+.star-bg,
+.cosmic-bg,
+.hero-stars,
+body::before {
+  z-index: 0 !important;
+  pointer-events: none;
+}
+
+.offcanvas-body {
+  height: 100%;
+  overflow-y: auto;
+}
+
+/* ===== OFFCANVAS SAFE MODE ===== */
+
+/*body.menu-open .star-bg {
+  display: none !important;
+}
+
+body.menu-open {
+  overflow: hidden;
+}*/
+
+/* ===============================
+/* ===============================
+   BOOTSTRAP OFFCANVAS & NAV FIXES
+================================ */
+
+/* Remove the padding-top from body that causes the white gap */
+body {
+  padding-top: 0;
+}
+
+/* Ensure the navbar stays at the top without gaps */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1060;
+  width: 100%;
+}
+
+/* Fix mobile menu visibility and colors */
+
+
+/* Force links in the mobile menu to use the theme text color */
+.offcanvas .nav-link {
+  color: var(--text) !important;
+  padding: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+/* ===== OFFCANVAS DROPDOWN FIX ===== */
+
+.offcanvas .dropdown-menu {
+  position: static !important;
+  transform: none !important;
+  background-color: var(--card);
+  border: none;
+  box-shadow: none;
+  display: none;
+}
+
+.offcanvas .dropdown-menu.show {
+  display: block;
+}
+
+/* Ensure the background stars don't overlap the menu */
+.offcanvas-backdrop {
+  z-index: 1055 !important;
+}
+
+/* ===== FORCE HAMBURGER VISIBILITY ===== */
+
+.navbar-toggler i {
+  color: var(--text) !important;
+  font-size: 2rem;
+}
+
+[data-theme="dark"] .navbar-toggler i {
+  color: #ffffff !important;
+}
+
+/* ===== MOBILE NAV LINK VISIBILITY FIX ===== */
+
+.offcanvas .nav-link {
+  opacity: 1 !important;
+  visibility: visible !important;
+}

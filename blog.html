@@ -1,0 +1,225 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - BOOMI Planetarium</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <div class="star-bg">
+        <div class="star-layer layer1"></div>
+        <div class="star-layer layer2"></div>
+    </div>
+
+    <!-- Global Navbar -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><img src="assets/images/logo.svg" alt="BOOMI Logo"></a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasNavbar">
+                <i class="bi bi-list fs-1 text-accent"></i>
+            </button>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar">
+                <div class="offcanvas-header border-bottom border-secondary pt-4 pb-3">
+                    <img src="assets/images/logo.svg" alt="BOOMI Logo" height="30">
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">Home</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="index.html">Home 1</a></li>
+                                <li><a class="dropdown-item" href="home2.html">Home 2</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button"
+                                data-bs-toggle="dropdown">Shows</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="planetarium.html">Planetarium</a></li>
+                                <li><a class="dropdown-item" href="theatre.html">3D Theatre</a></li>
+                                <li><a class="dropdown-item" href="lecture.html">Science Demonstration Lecture</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a class="nav-link active" href="blog.html">Blog</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+                    </ul>
+                    <div class="d-flex align-items-center mt-3 mt-lg-0">
+                        <button id="themeToggle" class="theme-toggle"><i class="bi bi-sun-fill"></i></button>
+                        <a href="book-tickets.html" class="btn btn-accent ms-3 d-none d-lg-inline-block">Book
+                            Tickets</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero-padding text-center border-bottom"
+            style="border-color: var(--border) !important; background-color: rgba(20, 26, 42, 0.4);">
+            <div class="container">
+                <h1 class="display-3 fw-bold mb-3">Cosmic <span class="text-accent">Chronicles</span></h1>
+                <p class="lead opacity-75 col-lg-8 mx-auto">Latest astronomical news, sky-watching guides, and updates
+                    from the BOOMI team.</p>
+            </div>
+        </section>
+
+        <!-- Blog Grid -->
+        <section class="section-padding">
+            <div class="container">
+
+                <div class="row g-4">
+                    <!-- Featured Blog Post -->
+                    <div class="col-12 mb-4">
+                        <div class="card-premium h-100">
+                            <div class="row g-0 h-100" style="min-height: 400px;">
+                                <div class="col-lg-7">
+                                    <img src="assets/images/blog-1.jpg" alt="Featured Blog Post"
+                                        class="img-fluid w-100 h-100 rounded-start"
+                                        style="object-fit:cover; min-height: 300px;">
+                                </div>
+                                <div class="col-lg-5 d-flex align-items-center">
+                                    <div class="card-body p-4 p-lg-5">
+                                        <span
+                                            class="badge bg-transparent border border-accent text-accent mb-3 rounded-pill px-3 py-2 text-uppercase letter-spacing-1">Deep
+                                            Space</span>
+                                        <h2 class="h1 fw-bold mb-3">James Webb Discovers Oldest Galaxy Yet</h2>
+                                        <p class="opacity-75 mb-4">The James Webb Space Telescope has potentially broken
+                                            its own record, identifying a galaxy that existed just 290 million years
+                                            after the Big Bang.</p>
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <small class="text-muted">October 15, 2026</small>
+                                            <a href="#" class="text-accent fw-bold text-decoration-none">Read More <i
+                                                    class="bi bi-arrow-right"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Standard Blog Posts -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card-premium h-100">
+                            <div class="card-img-wrapper" style="height: 200px;">
+                                <img src="assets/images/blog-2.jpg" alt="Blog 2" class="img-fluid w-100 h-100"
+                                    style="object-fit:cover;">
+                            </div>
+                            <div class="card-body">
+                                <span class="text-accent small d-block mb-2 text-uppercase fw-bold letter-spacing-1">Sky
+                                    Guide</span>
+                                <h4 class="mb-3">What's up in November?</h4>
+                                <p class="opacity-75 mb-4">A complete guide to meteor showers, visible planets, and
+                                    constellations you can spot from your backyard this month.</p>
+                                <div class="d-flex justify-content-between align-items-center mt-auto">
+                                    <small class="text-muted">Nov 1, 2026</small>
+                                    <a href="#" class="btn btn-sm btn-outline-accent">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card-premium h-100">
+                            <div class="card-img-wrapper" style="height: 200px;">
+                                <img src="assets/images/blog-3.jpg" alt="Blog 3" class="img-fluid w-100 h-100"
+                                    style="object-fit:cover;">
+                            </div>
+                            <div class="card-body">
+                                <span
+                                    class="text-accent small d-block mb-2 text-uppercase fw-bold letter-spacing-1">Behind
+                                    the Scenes</span>
+                                <h4 class="mb-3">Upgrading to 8K Lasers</h4>
+                                <p class="opacity-75 mb-4">Our technical director explains the monumental effort
+                                    required to calibrate our 10 new synchronized laser projectors.</p>
+                                <div class="d-flex justify-content-between align-items-center mt-auto">
+                                    <small class="text-muted">Oct 22, 2026</small>
+                                    <a href="#" class="btn btn-sm btn-outline-accent">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card-premium h-100">
+                            <div class="card-img-wrapper" style="height: 200px;">
+                                <img src="assets/images/blog-4.jpg" alt="Blog 4" class="img-fluid w-100 h-100"
+                                    style="object-fit:cover;">
+                            </div>
+                            <div class="card-body">
+                                <span
+                                    class="text-accent small d-block mb-2 text-uppercase fw-bold letter-spacing-1">Astrophysics</span>
+                                <h4 class="mb-3">Understanding Black Holes</h4>
+                                <p class="opacity-75 mb-4">Breaking down the anatomy of a black hole, from the event
+                                    horizon to the mysterious singularity at its core.</p>
+                                <div class="d-flex justify-content-between align-items-center mt-auto">
+                                    <small class="text-muted">Oct 10, 2026</small>
+                                    <a href="#" class="btn btn-sm btn-outline-accent">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-5">
+                    <a href="#" class="btn btn-outline-accent btn-lg px-5">Load More Articles</a>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-4 mb-5">
+                <div class="col-lg-4">
+                    <img src="assets/images/logo.svg" alt="BOOMI Logo" height="40" class="mb-4">
+                    <p class="footer-text pe-lg-4">Exploring the universe and bringing the wonders of space closer to
+                        humanity.</p>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="mb-4 fw-bold">Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="mb-4 fw-bold">Our Shows</h5>
+                    <ul class="footer-links">
+                        <li><a href="planetarium.html">Planetarium</a></li>
+                        <li><a href="blog.html">News Room</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="mb-4 fw-bold">Contact Info</h5>
+                    <ul class="footer-links">
+                        <li class="d-flex mb-3"><i class="bi bi-geo-alt-fill text-accent me-3 mt-1"></i><span>123 Cosmic
+                                Way, Cityville</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row pt-4 border-top" style="border-color: var(--border) !important;">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="footer-text mb-0">&copy; 2026 BOOMI Planetarium.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop" aria-label="Back to top"><i class="bi bi-arrow-up"></i></button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

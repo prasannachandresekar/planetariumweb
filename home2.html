@@ -1,0 +1,410 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOOMI Planetarium - Home Alternative</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <!-- Global Cosmic Background -->
+    <div class="star-bg">
+        <div class="star-layer layer1"></div>
+        <div class="star-layer layer2"></div>
+    </div>
+
+    <!-- Global Navbar -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="assets/images/logo.svg" alt="BOOMI Logo">
+            </a>
+
+            <!-- Offcanvas Mobile Menu Toggle -->
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                <i class="bi bi-list fs-1 text-accent"></i>
+            </button>
+
+            <!-- Offcanvas -->
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header border-bottom border-secondary pt-4 pb-3">
+                    <img src="assets/images/logo.svg" alt="BOOMI Logo" height="30">
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">Home</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="index.html">Home 1</a></li>
+                                <li><a class="dropdown-item" href="home2.html">Home 2</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Shows
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="planetarium.html">Planetarium</a></li>
+                                <li><a class="dropdown-item" href="theatre.html">3D Theatre</a></li>
+                                <li><a class="dropdown-item" href="lecture.html">Science Demonstration Lecture</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="blog.html">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="login.html">Login</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex align-items-center mt-3 mt-lg-0">
+                        <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+                            <i class="bi bi-sun-fill"></i>
+                        </button>
+                        <a href="book-tickets.html" class="btn btn-accent ms-3 d-none d-lg-inline-block">Book
+                            Tickets</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Split Hero Layout -->
+        <section class="mt-0 pt-5 border-bottom pb-0" style="border-color: var(--border) !important;">
+            <div class="container h-100">
+                <div class="row h-100 align-items-center g-5 pb-5">
+                    <div class="col-lg-6 text-center text-lg-start pe-lg-5">
+                        <div class="d-inline-flex align-items-center gap-2 mb-4 px-3 py-2 rounded-pill"
+                            style="background-color: rgba(124, 92, 255, 0.1); border: 1px solid var(--accent)">
+                            <span class="badge bg-accent rounded-pill fs-6 px-3">New</span>
+                            <span class="fw-medium text-accent">Discover the Deep Cosmos</span>
+                        </div>
+                        <h1 class="display-3 fw-bold mb-4">Astronomy<br>Reimagined</h1>
+                        <p class="lead mb-5 opacity-75">Connect with the universe. BOOMI brings cutting-edge
+                            astronomical education directly to you in stunning fidelity.</p>
+                        <div
+                            class="d-flex flex-column flex-sm-row gap-3 justify-content-center justify-content-lg-start">
+                            <a href="about.html" class="btn btn-accent btn-lg px-5">Get Started</a>
+                            <a href="planetarium.html" class="btn btn-outline-accent btn-lg px-5"><i
+                                    class="bi bi-play-circle me-2"></i>Watch Trailer</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 h-100 mt-lg-0 mt-5 pt-5 pt-lg-0 position-relative">
+                        <!-- Split hero visual -->
+                        <img src="assets/images/hero-home2.jpg" alt="Hero" class="img-fluid w-100 rounded-top"
+                            style="height: 500px; object-fit: cover; border: 1px solid var(--border); border-bottom: none; box-shadow: 0 -20px 40px rgba(124, 92, 255, 0.1);">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Programs section -->
+        <section class="section-padding">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="display-5 fw-bold mb-3">Our Core <span class="text-accent">Programs</span></h2>
+                    <p class="lead opacity-75">Immersive learning experiences for all ages</p>
+                </div>
+                <div class="row g-4 justify-content-center">
+                    <div class="col-md-4">
+                        <div class="card-premium p-4 text-center border-top border-4"
+                            style="border-top-color: var(--accent) !important;">
+                            <i class="bi bi-stars display-4 text-accent mb-4 d-block"></i>
+                            <h4 class="mb-3">Stellar Shows</h4>
+                            <p class="opacity-75 mb-4">Daily planetarium shows mapping the constellations and the lore
+                                behind them.</p>
+                            <a href="planetarium.html" class="text-accent fw-bold text-decoration-none">Explore Shows <i
+                                    class="bi bi-arrow-right ms-2"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card-premium p-4 text-center border-top border-4"
+                            style="border-top-color: var(--primary) !important;">
+                            <i class="bi bi-braces-asterisk display-4 text-accent mb-4 d-block"></i>
+                            <h4 class="mb-3">Science Demos</h4>
+                            <p class="opacity-75 mb-4">Live demonstrations exploring physics, chemistry, and space
+                                science.</p>
+                            <a href="lecture.html" class="text-accent fw-bold text-decoration-none">View Schedule <i
+                                    class="bi bi-arrow-right ms-2"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card-premium p-4 text-center border-top border-4"
+                            style="border-top-color: var(--border) !important;">
+                            <i class="bi bi-layers-half display-4 text-accent mb-4 d-block"></i>
+                            <h4 class="mb-3">3D Theatre</h4>
+                            <p class="opacity-75 mb-4">Stunning documentaries about space exploration in full
+                                3-dimensional glory.</p>
+                            <a href="book-tickets.html" class="text-accent fw-bold text-decoration-none">Book Tickets <i
+                                    class="bi bi-arrow-right ms-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technology section -->
+        <section class="section-padding" style="background-color: var(--card);">
+            <div class="container">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-5 order-2 order-lg-1">
+                        <div class="row g-3">
+                            <div class="col-6 mt-4">
+                                <img src="assets/images/tech-1.jpg" class="img-fluid rounded w-100 mb-3"
+                                    style="height:200px; object-fit:cover;">
+                                <img src="assets/images/tech-2.jpg" class="img-fluid rounded w-100"
+                                    style="height:160px; object-fit:cover;">
+                            </div>
+                            <div class="col-6">
+                                <img src="assets/images/tech-3.jpg" class="img-fluid rounded w-100 mb-3"
+                                    style="height:160px; object-fit:cover;">
+                                <img src="assets/images/tech-4.jpg" class="img-fluid rounded w-100"
+                                    style="height:200px; object-fit:cover;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7 px-lg-5 order-1 order-lg-2">
+                        <h6 class="text-accent fw-bold mb-2 text-uppercase letter-spacing-2">The Tech</h6>
+                        <h2 class="display-5 fw-bold mb-4">Powered by <span class="text-accent">Innovation</span></h2>
+                        <p class="lead opacity-75 mb-4">Our facility utilizes the latest in digital projection. Using a
+                            specialized 8K laser system, we create true black skies and pinpoint stars.</p>
+                        <div class="row g-4 mt-2">
+                            <div class="col-sm-6">
+                                <h4 class="fw-bold"><i class="bi bi-display text-accent me-2"></i> 8K Resolution</h4>
+                                <p class="opacity-75">Unprecedented clarity for every show.</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <h4 class="fw-bold"><i class="bi bi-speaker text-accent me-2"></i> Spatial Audio</h4>
+                                <p class="opacity-75">Immersive 3D soundscapes.</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <h4 class="fw-bold"><i class="bi bi-hdd-network text-accent me-2"></i> Live Data</h4>
+                                <p class="opacity-75">Real-time feeds from active satellites.</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <h4 class="fw-bold"><i class="bi bi-lightning-charge text-accent me-2"></i> Interactive
+                                </h4>
+                                <p class="opacity-75">Audience-driven narrative choices.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Activities -->
+        <section class="section-padding">
+            <div class="container">
+                <h2 class="display-6 fw-bold text-center mb-5">Featured <span class="text-accent">Activities</span></h2>
+                <div class="row g-4">
+                    <!-- Activity 1 -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card-premium h-100">
+                            <img src="assets/images/activity-1.jpg" class="img-fluid rounded-top"
+                                style="height:220px; object-fit:cover;">
+                            <div class="p-4">
+                                <h4 class="mb-3">Telescope Sessions</h4>
+                                <p class="opacity-75">Join our astronomers on the roof for guided stargazing using
+                                    professional equipment.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card-premium h-100" style="background-color: var(--primary);">
+                            <img src="assets/images/activity-2.jpg" class="img-fluid rounded-top"
+                                style="height:220px; object-fit:cover;">
+                            <div class="p-4">
+                                <h4 class="mb-3">School Trips</h4>
+                                <p class="opacity-75">Specialized educational itineraries aligned with STEM curriculums.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card-premium h-100">
+                            <img src="assets/images/activity-3.jpg" class="img-fluid rounded-top"
+                                style="height:220px; object-fit:cover;">
+                            <div class="p-4">
+                                <h4 class="mb-3">Workshops</h4>
+                                <p class="opacity-75">Hands-on model rocketry and telescope-making weekend sessions.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card-premium h-100" style="background-color: var(--border);">
+                            <img src="assets/images/activity-4.jpg" class="img-fluid rounded-top"
+                                style="height:220px; object-fit:cover;">
+                            <div class="p-4">
+                                <h4 class="mb-3">Corporate Events</h4>
+                                <p class="opacity-75">Unique venues for team building under the digital stars.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="section-padding" style="background-color: rgba(20, 26, 42, 0.3);">
+            <div class="container pb-4">
+                <h2 class="display-6 fw-bold text-center mb-5">What our <span class="text-accent">Visitors</span> Say
+                </h2>
+                <div class="row g-4 justify-content-center">
+                    <div class="col-md-4">
+                        <div class="card-premium p-4">
+                            <div class="d-flex text-warning mb-3">
+                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                    class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                    class="bi bi-star-fill"></i>
+                            </div>
+                            <p class="lead fw-normal fst-italic mb-4">"Absolutely breathtaking. The 8K projection makes
+                                you feel like you are floating in space."</p>
+                            <div class="d-flex align-items-center">
+                                <img src="assets/images/user-1.jpg" class="rounded-circle me-3" width="40" height="40"
+                                    style="object-fit:cover;">
+                                <div>
+                                    <h6 class="mb-0 fw-bold">Sarah Jenkins</h6>
+                                    <small class="opacity-75">Science Teacher</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card-premium p-4">
+                            <div class="d-flex text-warning mb-3">
+                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                    class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                    class="bi bi-star-fill"></i>
+                            </div>
+                            <p class="lead fw-normal fst-italic mb-4">"The science demo lecture was illuminating. My
+                                kids learned so much about the solar system!"</p>
+                            <div class="d-flex align-items-center">
+                                <img src="assets/images/user-2.jpg" class="rounded-circle me-3" width="40" height="40"
+                                    style="object-fit:cover;">
+                                <div>
+                                    <h6 class="mb-0 fw-bold">Michael T.</h6>
+                                    <small class="opacity-75">Local Parent</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to action -->
+        <section class="section-padding text-center">
+            <div class="container py-5">
+                <div class="card-premium p-5 d-flex flex-column align-items-center justify-content-center"
+                    style="background: linear-gradient(135deg, var(--card), rgba(124, 92, 255, 0.2));">
+                    <h2 class="display-4 fw-bold mb-4">Ready to <span class="text-accent">Launch</span>?</h2>
+                    <p class="lead opacity-75 mb-5 col-lg-6">Book your tickets today and secure your seat for a journey
+                        across the cosmos. Special rates available for groups and members.</p>
+                    <div class="d-flex gap-3">
+                        <a href="book-tickets.html" class="btn btn-accent btn-lg px-5">Get Tickets</a>
+                        <a href="contact.html" class="btn btn-outline-accent btn-lg px-5">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Global Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-4 mb-5">
+                <div class="col-lg-4">
+                    <img src="assets/images/logo.svg" alt="BOOMI Logo" height="40" class="mb-4">
+                    <p class="footer-text pe-lg-4">Exploring the universe and bringing the wonders of space closer to
+                        humanity through state-of-the-art technology and expert guidance.</p>
+                    <div class="d-flex gap-3 mt-4">
+                        <a href="#"
+                            class="btn btn-outline-accent rounded-circle p-2 d-flex align-items-center justify-content-center"
+                            style="width: 40px; height: 40px;"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#"
+                            class="btn btn-outline-accent rounded-circle p-2 d-flex align-items-center justify-content-center"
+                            style="width: 40px; height: 40px;"><i class="bi bi-instagram"></i></a>
+                        <a href="#"
+                            class="btn btn-outline-accent rounded-circle p-2 d-flex align-items-center justify-content-center"
+                            style="width: 40px; height: 40px;"><i class="bi bi-facebook"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="mb-4 fw-bold">Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home 1</a></li>
+                        <li><a href="home2.html">Home 2</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="mb-4 fw-bold">Our Shows</h5>
+                    <ul class="footer-links">
+                        <li><a href="planetarium.html">Planetarium</a></li>
+                        <li><a href="theatre.html">3D Theatre</a></li>
+                        <li><a href="lecture.html">Science Demonstration</a></li>
+                        <li><a href="blog.html">Latest News</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="mb-4 fw-bold">Contact Info</h5>
+                    <ul class="footer-links">
+                        <li class="d-flex mb-3">
+                            <i class="bi bi-geo-alt-fill text-accent me-3 mt-1"></i>
+                            <span>123 Cosmic Way,<br>Cityville, ST 12345</span>
+                        </li>
+                        <li class="d-flex mb-3">
+                            <i class="bi bi-telephone-fill text-accent me-3 mt-1"></i>
+                            <span>+1 (555) 123-4567</span>
+                        </li>
+                        <li class="d-flex mb-3">
+                            <i class="bi bi-envelope-fill text-accent me-3 mt-1"></i>
+                            <span>hello@boomi.space</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row pt-4 border-top" style="border-color: var(--border) !important;">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    <p class="footer-text mb-0">&copy; 2026 BOOMI Planetarium. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <a href="#" class="footer-text text-decoration-none me-3">Privacy Policy</a>
+                    <a href="#" class="footer-text text-decoration-none">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,155 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOOMI Planetarium - Login/Signup</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <div class="star-bg">
+        <div class="star-layer layer1"></div>
+        <div class="star-layer layer2"></div>
+    </div>
+
+    <!-- Global Navbar -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header border-bottom border-secondary pt-4 pb-3">
+            <img src="assets/images/logo.svg" alt="BOOMI Logo" height="30">
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">Home</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="index.html">Home 1</a></li>
+                        <li><a class="dropdown-item" href="home2.html">Home 2</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Shows
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="planetarium.html">Planetarium</a></li>
+                        <li><a class="dropdown-item" href="theatre.html">3D Theatre</a></li>
+                        <li><a class="dropdown-item" href="lecture.html">Science Demonstration Lecture</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="blog.html">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="login.html">Login</a>
+                </li>
+            </ul>
+            <div class="d-flex align-items-center mt-3 mt-lg-0">
+                <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+                    <i class="bi bi-sun-fill"></i>
+                </button>
+                <a href="book-tickets.html" class="btn btn-accent ms-3 d-none d-lg-inline-block">Book Tickets</a>
+            </div>
+        </div>
+    </div>
+
+    <main class="d-flex align-items-center py-5" style="min-height: 80vh;">
+        <div class="container">
+            <div class="auth-container">
+                <div class="text-center mb-4">
+                    <img src="assets/images/login-illustration.jpg" alt="Login Illustration"
+                        class="img-fluid rounded-4 shadow-lg w-100" style="object-fit:cover; max-height: 200px;">
+                </div>
+                <div class="card-premium p-4 p-md-5">
+                    <h2 class="text-center fw-bold mb-4">Welcome to <span class="text-accent">BOOMI</span></h2>
+
+                    <div class="auth-tabs">
+                        <div class="auth-tab active" data-target="loginForm">Log In</div>
+                        <div class="auth-tab" data-target="signupForm">Sign Up</div>
+                    </div>
+
+                    <!-- Login Form -->
+                    <form id="loginForm" class="auth-form active" action="#" method="POST"
+                        onsubmit="event.preventDefault(); window.location.href='index.html';">
+                        <div class="mb-3">
+                            <label for="loginEmail" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="loginEmail" placeholder="name@example.com"
+                                required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="loginPassword" class="form-label d-flex justify-content-between">
+                                Password
+                                <a href="#" class="text-accent small text-decoration-none">Forgot Password?</a>
+                            </label>
+                            <input type="password" class="form-control" id="loginPassword"
+                                placeholder="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢" required>
+                        </div>
+                        <div class="form-check mb-4">
+                            <input class="form-check-input" type="checkbox" value="" id="rememberMe">
+                            <label class="form-check-label opacity-75" for="rememberMe">Remember me</label>
+                        </div>
+                        <button type="submit" class="btn btn-accent w-100 text-uppercase letter-spacing-1">Log
+                            In</button>
+                    </form>
+
+                    <!-- Signup Form -->
+                    <form id="signupForm" class="auth-form" action="#" method="POST"
+                        onsubmit="event.preventDefault(); window.location.href='index.html';">
+                        <div class="row g-3 mb-3">
+                            <div class="col-sm-6">
+                                <label for="signupFirstName" class="form-label">First Name</label>
+                                <input type="text" class="form-control" id="signupFirstName" placeholder="Jane"
+                                    required>
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="signupLastName" class="form-label">Last Name</label>
+                                <input type="text" class="form-control" id="signupLastName" placeholder="Doe" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="signupEmail" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="signupEmail" placeholder="name@example.com"
+                                required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="signupPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="signupPassword"
+                                placeholder="Create a secure password" required>
+                        </div>
+                        <div class="form-check mb-4">
+                            <input class="form-check-input" type="checkbox" value="" id="terms" required>
+                            <label class="form-check-label opacity-75 small" for="terms">I agree to the <a href="#"
+                                    class="text-accent">Terms of Service</a> and <a href="#" class="text-accent">Privacy
+                                    Policy</a>.</label>
+                        </div>
+                        <button type="submit"
+                            class="btn btn-outline-accent w-100 text-uppercase letter-spacing-1">Create Account</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p class="footer-text mb-0">&copy; 2026 BOOMI Planetarium. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

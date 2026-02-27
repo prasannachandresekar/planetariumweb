@@ -1,0 +1,205 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Science Demonstration - BOOMI Planetarium</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <div class="star-bg">
+        <div class="star-layer layer1"></div>
+        <div class="star-layer layer2"></div>
+    </div>
+
+    <!-- Global Navbar -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><img src="assets/images/logo.svg" alt="BOOMI Logo"></a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasNavbar">
+                <i class="bi bi-list fs-1 text-accent"></i>
+            </button>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar">
+                <div class="offcanvas-header border-bottom border-secondary pt-4 pb-3">
+                    <img src="assets/images/logo.svg" alt="BOOMI Logo" height="30">
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">Home</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="index.html">Home 1</a></li>
+                                <li><a class="dropdown-item" href="home2.html">Home 2</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle active" href="#" role="button"
+                                data-bs-toggle="dropdown">Shows</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="planetarium.html">Planetarium</a></li>
+                                <li><a class="dropdown-item" href="theatre.html">3D Theatre</a></li>
+                                <li><a class="dropdown-item active text-accent" href="lecture.html">Science
+                                        Demonstration Lecture</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+                    </ul>
+                    <div class="d-flex align-items-center mt-3 mt-lg-0">
+                        <button id="themeToggle" class="theme-toggle"><i class="bi bi-sun-fill"></i></button>
+                        <a href="book-tickets.html" class="btn btn-accent ms-3 d-none d-lg-inline-block">Book
+                            Tickets</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero-padding text-center border-bottom position-relative overflow-hidden"
+            style="border-color: var(--border) !important;">
+            <div class="w-100 h-100 position-absolute top-0 start-0"
+                style="background: radial-gradient(circle at center, rgba(124, 92, 255, 0.15) 0%, transparent 70%); z-index: -1;">
+            </div>
+            <div class="container">
+                <div class="mb-4">
+                    <img src="assets/images/lecture-banner.jpg" alt="Lecture Banner"
+                        class="img-fluid rounded-4 shadow-lg w-100" style="object-fit:cover; max-height: 400px;">
+                </div>
+                <span
+                    class="badge bg-transparent border border-accent text-accent mb-3 rounded-pill px-3 py-2 text-uppercase letter-spacing-1">Live
+                    Education</span>
+                <h1 class="display-3 fw-bold mb-3">Science <span class="text-accent">Demonstration</span></h1>
+                <p class="lead opacity-75 col-lg-8 mx-auto">Interactive live experiments explaining the physics of the
+                    universe, delivered by our expert educators.</p>
+            </div>
+        </section>
+
+        <!-- Description Layout -->
+        <section class="section-padding">
+            <div class="container">
+
+                <!-- Lecture Item 1 -->
+                <div class="row g-5 align-items-center mb-5 pb-5 border-bottom"
+                    style="border-color: var(--border) !important;">
+                    <div class="col-lg-6">
+                        <img src="assets/images/physics-light.jpg" class="img-fluid rounded w-100"
+                            style="height:350px; object-fit:cover;" alt="Physics of Light">
+                    </div>
+                    <div class="col-lg-6">
+                        <h2 class="h1 fw-bold mb-3">The Physics of Light</h2>
+                        <div class="d-flex gap-3 mb-4">
+                            <span class="badge bg-transparent border border-secondary text-secondary"><i
+                                    class="bi bi-clock me-1"></i> 30 mins</span>
+                            <span class="badge bg-transparent border border-secondary text-secondary"><i
+                                    class="bi bi-mic-fill me-1"></i> Live Presenter</span>
+                        </div>
+                        <p class="lead opacity-75 mb-4">How do we know what stars are made of? Discover spectroscopy,
+                            prisms, and lasers in this highly visual demonstration of light and color.</p>
+                        <div class="mb-4">
+                            <h5 class="fw-bold fs-6 text-uppercase letter-spacing-1 text-accent mb-2">Schedule</h5>
+                            <div class="d-flex gap-2 flex-wrap">
+                                <span class="px-3 py-2 rounded"
+                                    style="background-color: var(--card); border: 1px solid var(--border);">Weekdays
+                                    11:30 AM</span>
+                                <span class="px-3 py-2 rounded"
+                                    style="background-color: var(--card); border: 1px solid var(--border);">Weekends
+                                    10:30 AM</span>
+                            </div>
+                        </div>
+                        <p class="text-accent mb-0"><i class="bi bi-info-circle me-2"></i>Included with general
+                            admission</p>
+                    </div>
+                </div>
+
+                <!-- Lecture Item 2 -->
+                <div class="row g-5 align-items-center">
+                    <div class="col-lg-6 order-2 order-lg-1">
+                        <h2 class="h1 fw-bold mb-3">Vacuum of Space</h2>
+                        <div class="d-flex gap-3 mb-4">
+                            <span class="badge bg-transparent border border-secondary text-secondary"><i
+                                    class="bi bi-clock me-1"></i> 30 mins</span>
+                            <span class="badge bg-transparent border border-secondary text-secondary"><i
+                                    class="bi bi-mic-fill me-1"></i> Live Presenter</span>
+                        </div>
+                        <p class="lead opacity-75 mb-4">What happens to water in space? Or a marshmallow? Using our
+                            industrial vacuum bell jar, we simulate the harsh conditions of orbit right before your
+                            eyes.</p>
+                        <div class="mb-4">
+                            <h5 class="fw-bold fs-6 text-uppercase letter-spacing-1 text-accent mb-2">Schedule</h5>
+                            <div class="d-flex gap-2 flex-wrap">
+                                <span class="px-3 py-2 rounded"
+                                    style="background-color: var(--card); border: 1px solid var(--border);">Weekdays
+                                    2:30 PM</span>
+                                <span class="px-3 py-2 rounded"
+                                    style="background-color: var(--card); border: 1px solid var(--border);">Weekends
+                                    3:30 PM</span>
+                            </div>
+                        </div>
+                        <p class="text-accent mb-0"><i class="bi bi-info-circle me-2"></i>Included with general
+                            admission</p>
+                    </div>
+                    <div class="col-lg-6 order-1 order-lg-2">
+                        <img src="assets/images/vacuum-space.jpg" class="img-fluid rounded w-100"
+                            style="height:350px; object-fit:cover;" alt="Vacuum of Space Demonstration">
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-4 mb-5">
+                <div class="col-lg-4">
+                    <img src="assets/images/logo.svg" alt="BOOMI Logo" height="40" class="mb-4">
+                    <p class="footer-text pe-lg-4">Exploring the universe and bringing the wonders of space closer to
+                        humanity.</p>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="mb-4 fw-bold">Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="mb-4 fw-bold">Our Shows</h5>
+                    <ul class="footer-links">
+                        <li><a href="planetarium.html">Planetarium</a></li>
+                        <li><a href="lecture.html">Science Demo</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="mb-4 fw-bold">Contact Info</h5>
+                    <ul class="footer-links">
+                        <li class="d-flex mb-3"><i class="bi bi-geo-alt-fill text-accent me-3 mt-1"></i><span>123 Cosmic
+                                Way, Cityville</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row pt-4 border-top" style="border-color: var(--border) !important;">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="footer-text mb-0">&copy; 2026 BOOMI Planetarium.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop" aria-label="Back to top"><i class="bi bi-arrow-up"></i></button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

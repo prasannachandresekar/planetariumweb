@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Tickets - BOOMI Planetarium</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .time-slot {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background-color: var(--bg);
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+
+        .time-slot:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .time-slot.selected {
+            background-color: var(--accent);
+            color: #fff;
+            border-color: var(--accent);
+            box-shadow: 0 0 10px rgba(124, 92, 255, 0.4);
+        }
+
+        .visitor-control {
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text);
+            transition: all 0.2s;
+        }
+
+        .visitor-control:hover {
+            background-color: var(--primary);
+        }
+
+        .visitor-value {
+            width: 50px;
+            text-align: center;
+            background: transparent;
+            border: none;
+            color: var(--text);
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="star-bg">
+        <div class="star-layer layer1"></div>
+        <div class="star-layer layer2"></div>
+    </div>
+
+    <!-- Global Navbar (Unmodified from other pages) -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="assets/images/logo.svg" alt="BOOMI Logo">
+            </a>
+
+            <!-- Offcanvas Mobile Menu Toggle -->
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                <i class="bi bi-list fs-1 text-accent"></i>
+            </button>
+
+            <!-- Offcanvas -->
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header border-bottom border-secondary pt-4 pb-3">
+                    <img src="assets/images/logo.svg" alt="BOOMI Logo" height="30">
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">Home</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="index.html">Home 1</a></li>
+                                <li><a class="dropdown-item" href="home2.html">Home 2</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Shows
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="planetarium.html">Planetarium</a></li>
+                                <li><a class="dropdown-item" href="theatre.html">3D Theatre</a></li>
+                                <li><a class="dropdown-item" href="lecture.html">Science Demonstration Lecture</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="blog.html">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="login.html">Login</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex align-items-center mt-3 mt-lg-0">
+                        <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+                            <i class="bi bi-sun-fill"></i>
+                        </button>
+                        <a href="book-tickets.html" class="btn btn-accent ms-3 d-none d-lg-inline-block">Book
+                            Tickets</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </nav>
+
+    <main>
+        <section class="hero-padding text-center border-bottom"
+            style="border-color: var(--border) !important; background-color: rgba(20, 26, 42, 0.4);">
+            <div class="container">
+                <h1 class="display-3 fw-bold mb-3">Book Your <span class="text-accent">Experience</span></h1>
+                <p class="lead opacity-75 col-lg-8 mx-auto">Select your journey, choose a time, and secure your seats
+                    under the stars.</p>
+            </div>
+        </section>
+
+        <section class="section-padding">
+            <div class="container">
+                <div class="row g-5">
+                    <!-- Booking Form (Left) -->
+                    <div class="col-lg-7 col-xl-8">
+                        <div class="card-premium p-4 p-md-5">
+                            <form id="bookingForm"
+                                onsubmit="event.preventDefault(); alert('Booking successful! Redirecting to home...'); window.location.href='index.html';">
+
+                                <!-- Step 1: Show Selection -->
+                                <h4 class="fw-bold mb-4 d-flex align-items-center"><span
+                                        class="badge bg-accent rounded-circle p-2 px-3 me-3">1</span> Select a Program
+                                </h4>
+                                <div class="mb-5 ms-md-5">
+                                    <select class="form-select form-select-lg" id="showSelect" required
+                                        style="background-color: var(--bg); color: var(--text); border-color: var(--border);">
+                                        <option value="" selected disabled>Choose your experience...</option>
+                                        <option value="Planetarium Show - Passport to the Universe">Planetarium Show
+                                        </option>
+                                        <option value="3D Theatre - Apollo 11">3D Theatre</option>
+                                        <option value="Science Demo - Physics of Light">Science Demonstration Lecture
+                                        </option>
+                                    </select>
+                                </div>
+
+                                <!-- Step 2: Date & Time -->
+                                <h4 class="fw-bold mb-4 d-flex align-items-center"><span
+                                        class="badge bg-accent rounded-circle p-2 px-3 me-3">2</span> Date & Time</h4>
+                                <div class="row g-4 mb-5 ms-md-5">
+                                    <div class="col-md-6">
+                                        <label class="form-label text-muted">Select Date</label>
+                                        <input type="date" class="form-control form-control-lg" id="datePicker" required
+                                            style="background-color: var(--bg); color: var(--text); border-color: var(--border);">
+                                    </div>
+                                    <div class="col-md-12 mt-4">
+                                        <label class="form-label text-muted mb-3">Available Time Slots</label>
+                                        <div class="d-flex flex-wrap gap-2" id="timeSlotsContainer">
+                                            <button type="button" class="btn time-slot py-2 px-4 rounded"
+                                                data-time="10:00 AM">10:00 AM</button>
+                                            <button type="button" class="btn time-slot py-2 px-4 rounded"
+                                                data-time="01:00 PM">01:00 PM</button>
+                                            <button type="button" class="btn time-slot py-2 px-4 rounded"
+                                                data-time="04:00 PM">04:00 PM</button>
+                                            <button type="button" class="btn time-slot py-2 px-4 rounded"
+                                                data-time="07:00 PM">07:00 PM</button>
+                                        </div>
+                                        <input type="hidden" id="selectedTime" required>
+                                        <div class="invalid-feedback text-danger" id="timeError" style="display: none;">
+                                            Please select a time slot.</div>
+                                    </div>
+                                </div>
+
+                                <!-- Step 3: Visitors -->
+                                <h4 class="fw-bold mb-4 d-flex align-items-center"><span
+                                        class="badge bg-accent rounded-circle p-2 px-3 me-3">3</span> Visitors</h4>
+                                <div class="mb-5 ms-md-5 text-muted small mb-3">Prices per person</div>
+                                <div class="ms-md-5">
+                                    <!-- Adults -->
+                                    <div class="d-flex justify-content-between align-items-center mb-4 pb-3 border-bottom"
+                                        style="border-color: var(--border) !important;">
+                                        <div>
+                                            <h5 class="mb-1">Adults</h5>
+                                            <p class="mb-0 text-muted small">$20.00 x</p>
+                                        </div>
+                                        <div class="d-flex align-items-center">
+                                            <div class="visitor-control" onclick="updateTickets('adults', -1)"><i
+                                                    class="bi bi-dash"></i></div>
+                                            <input type="text" class="visitor-value" id="adultCount" value="1" readonly>
+                                            <div class="visitor-control" onclick="updateTickets('adults', 1)"><i
+                                                    class="bi bi-plus"></i></div>
+                                        </div>
+                                    </div>
+                                    <!-- Children -->
+                                    <div class="d-flex justify-content-between align-items-center mb-4 pb-3 border-bottom"
+                                        style="border-color: var(--border) !important;">
+                                        <div>
+                                            <h5 class="mb-1">Children</h5>
+                                            <p class="mb-0 text-muted small">$12.00 x</p>
+                                        </div>
+                                        <div class="d-flex align-items-center">
+                                            <div class="visitor-control" onclick="updateTickets('children', -1)"><i
+                                                    class="bi bi-dash"></i></div>
+                                            <input type="text" class="visitor-value" id="childCount" value="0" readonly>
+                                            <div class="visitor-control" onclick="updateTickets('children', 1)"><i
+                                                    class="bi bi-plus"></i></div>
+                                        </div>
+                                    </div>
+                                    <!-- Students -->
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h5 class="mb-1">Students</h5>
+                                            <p class="mb-0 text-muted small">$15.00 x</p>
+                                        </div>
+                                        <div class="d-flex align-items-center">
+                                            <div class="visitor-control" onclick="updateTickets('students', -1)"><i
+                                                    class="bi bi-dash"></i></div>
+                                            <input type="text" class="visitor-value" id="studentCount" value="0"
+                                                readonly>
+                                            <div class="visitor-control" onclick="updateTickets('students', 1)"><i
+                                                    class="bi bi-plus"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Ticket Summary (Right) -->
+                    <div class="col-lg-5 col-xl-4 sticky-lg-top" style="top: 100px; height: max-content;">
+                        <div class="mb-4">
+                            <img src="assets/images/booking.jpg" alt="Booking Experience"
+                                class="img-fluid rounded-4 shadow-lg w-100"
+                                style="object-fit:cover; max-height: 250px;">
+                        </div>
+                        <div class="card-premium p-4"
+                            style="background: linear-gradient(135deg, var(--card), rgba(124, 92, 255, 0.05));">
+                            <h4 class="fw-bold mb-4 border-bottom pb-3" style="border-color: var(--border) !important;">
+                                Ticket Summary</h4>
+
+                            <div class="mb-4">
+                                <p class="text-muted small mb-1 text-uppercase letter-spacing-1">Program</p>
+                                <h5 class="fw-bold" id="summaryShow">Select a program</h5>
+                            </div>
+
+                            <div class="row mb-4">
+                                <div class="col-6">
+                                    <p class="text-muted small mb-1 text-uppercase letter-spacing-1">Date</p>
+                                    <h6 class="fw-bold" id="summaryDate">-</h6>
+                                </div>
+                                <div class="col-6">
+                                    <p class="text-muted small mb-1 text-uppercase letter-spacing-1">Time</p>
+                                    <h6 class="fw-bold" id="summaryTime">-</h6>
+                                </div>
+                            </div>
+
+                            <div class="border-top mb-4 pt-3" style="border-color: var(--border) !important;">
+                                <p class="text-muted small mb-3 text-uppercase letter-spacing-1">Visitors</p>
+                                <div class="d-flex justify-content-between mb-2 fs-6">
+                                    <span>Adults (<span id="calcAdults">1</span>)</span>
+                                    <span id="priceAdults" class="fw-medium">$20.00</span>
+                                </div>
+                                <div class="d-flex justify-content-between mb-2 fs-6 d-none" id="rowChildren">
+                                    <span>Children (<span id="calcChildren">0</span>)</span>
+                                    <span id="priceChildren" class="fw-medium">$0.00</span>
+                                </div>
+                                <div class="d-flex justify-content-between mb-2 fs-6 d-none" id="rowStudents">
+                                    <span>Students (<span id="calcStudents">0</span>)</span>
+                                    <span id="priceStudents" class="fw-medium">$0.00</span>
+                                </div>
+                            </div>
+
+                            <div class="border-top border-bottom py-3 mb-4"
+                                style="border-color: var(--border) !important;">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="fs-5">Total (<span id="totalVisitors">1</span> visitor)</span>
+                                    <h3 class="fw-bold text-accent mb-0" id="summaryTotal">$20.00</h3>
+                                </div>
+                            </div>
+
+                            <button type="submit" form="bookingForm"
+                                class="btn btn-accent w-100 btn-lg text-uppercase letter-spacing-1 fs-6"
+                                id="btnBookNow">Book Now</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-4 mb-5">
+                <div class="col-lg-4">
+                    <img src="assets/images/logo.svg" alt="BOOMI Logo" height="40" class="mb-4">
+                    <p class="footer-text pe-lg-4">Exploring the universe and bringing the wonders of space closer to
+                        humanity through state-of-the-art technology and expert guidance.</p>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="mb-4 fw-bold">Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="mb-4 fw-bold">Our Shows</h5>
+                    <ul class="footer-links">
+                        <li><a href="planetarium.html">Planetarium</a></li>
+                        <li><a href="theatre.html">3D Theatre</a></li>
+                        <li><a href="lecture.html">Science Demo</a></li>
+                        <li><a href="blog.html">Latest News</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="mb-4 fw-bold">Contact Info</h5>
+                    <ul class="footer-links">
+                        <li class="d-flex mb-3"><i class="bi bi-geo-alt-fill text-accent me-3 mt-1"></i><span>123 Cosmic
+                                Way, Cityville</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row pt-4 border-top" style="border-color: var(--border) !important;">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="footer-text mb-0">&copy; 2026 BOOMI Planetarium. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop" aria-label="Back to top"><i class="bi bi-arrow-up"></i></button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
